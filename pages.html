@@ -11,7 +11,7 @@
         <h1>Welcome to My Another Website</h1>
         <nav>
             <ul>
-                <li><a href="#home">Home</a></li>
+                <li><a href="#" onclick="navigateToHome()">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -20,9 +20,10 @@
     </header>
 
     <main>
-        <section id="home">
+        <section id="homeScreen" style="display: none;">
             <h2>Home</h2>
             <p>Welcome to our website. We provide...</p>
+            <button onclick="navigateToMain()">Go to Main</button>
         </section>
 
         <section id="about">
@@ -59,6 +60,22 @@
     <footer>
         <p>&copy; 2024 Your Company. All rights reserved.</p>
     </footer>
+
+    <script>
+        function navigateToHome() {
+            document.getElementById('homeScreen').style.display = 'block';
+            document.getElementById('about').style.display = 'none';
+            document.getElementById('services').style.display = 'none';
+            document.getElementById('contact').style.display = 'none';
+        }
+
+        function navigateToMain() {
+            document.getElementById('homeScreen').style.display = 'none';
+            document.getElementById('about').style.display = 'block';
+            document.getElementById('services').style.display = 'block';
+            document.getElementById('contact').style.display = 'block';
+        }
+    </script>
 
     <?php
     // PHP code block for handling form submission
