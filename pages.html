@@ -3,61 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Page Title</title>
+    <title>Welcome to My Website</title>
 </head>
 <body>
-    <!-- Your page content goes here -->
     <header>
         <h1>Welcome to My Another Website</h1>
         <nav>
             <ul>
                 <li><a href="#" onclick="navigateToHome()">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-
-        <div style="padding:56.25% 0 0 0;position:relative"><div style="height:100%;left:0;position:absolute;top:0;width:100%"><iframe src="https://licencetotest.com/embed/534b203f808" title="Zeacon | Embed Video" width="100%" height="100%" allowfullscreen="" style="border:0px"></iframe></div></div>
-        
-        <section id="homeScreen" style="display: none;">
-            <h2>Home</h2>
-            <p>Welcome to our website. We provide...</p>
-            <form action="save_form_data.php" method="POST">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required><br><br>
-                
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br><br>
-
-                <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" name="phone" required><br><br>
-
-                <input type="submit" value="Submit">
-            </form>
-        </section>
-
-        <section id="about">
-            <h2>About Us</h2>
-            <p>Learn more about our company...</p>
-        </section>
-
-        <section id="services">
-            <h2>Our Services</h2>
-            <ul>
-                <li>Service 1</li>
-                <li>Service 2</li>
-                <li>Service 3</li>
-            </ul>
-        </section>
-
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <!-- Form removed from here -->
-        </section>
+        <div style="padding:56.25% 0 0 0;position:relative">
+            <div style="height:100%;left:0;position:absolute;top:0;width:100%">
+                <iframe src="https://licencetotest.com/embed/534b203f808" title="Zeacon | Embed Video" width="100%" height="100%" allowfullscreen="" style="border:0px"></iframe>
+            </div>
+        </div>
     </main>
 
     <footer>
@@ -66,41 +32,8 @@
 
     <script>
         function navigateToHome() {
-            document.getElementById('homeScreen').style.display = 'block';
-            document.getElementById('about').style.display = 'none';
-            document.getElementById('services').style.display = 'none';
-            document.getElementById('contact').style.display = 'none';
-        }
-
-        function navigateToMain() {
-            document.getElementById('homeScreen').style.display = 'none';
-            document.getElementById('about').style.display = 'block';
-            document.getElementById('services').style.display = 'block';
-            document.getElementById('contact').style.display = 'block';
+            window.location.href = 'index.html';
         }
     </script>
-
-    <?php
-    // PHP code block for handling form submission
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Define the file path to save the form data
-        $file_path = "form_data.txt";
-
-        // Extract form data
-        $name = $_POST["name"];
-        $email = $_POST["email"];
-        $phone = $_POST["phone"];
-
-        // Format the data
-        $data = "Name: $name\nEmail: $email\nPhone: $phone\n\n";
-
-        // Open the file in append mode and save the form data
-        if (file_put_contents($file_path, $data, FILE_APPEND | LOCK_EX) !== false) {
-            echo "Form data saved successfully.";
-        } else {
-            echo "Error occurred while saving form data.";
-        }
-    }
-    ?>
 </body>
 </html>
