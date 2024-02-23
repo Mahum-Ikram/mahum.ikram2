@@ -11,8 +11,6 @@
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -21,7 +19,7 @@
     <main>
         <section id="contact">
             <h2>Contact Us</h2>
-            <form action="save_form_data.php" method="POST">
+            <form id="contactForm">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required><br><br>
                 
@@ -39,5 +37,30 @@
     <footer>
         <p>&copy; 2024 Your Company. All rights reserved.</p>
     </footer>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            var formData = new FormData(this);
+
+            // Send form data using fetch API
+            fetch("save_form_data.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data);
+                alert("Form submitted successfully!");
+                // Optionally, you can redirect the user to another page after successful form submission
+                // window.location.href = "thank_you.html";
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert("An error occurred while submitting the form. Please try again later.");
+            });
+        });
+    </script>
 </body>
 </html>
