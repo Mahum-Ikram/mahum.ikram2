@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <script id="zeacon-sdk" src="https://licencetotest.com/sdk/correlator.js?api-key=30c9c0fc-1306-47c0-ac62-41sd252863a5ef"></script>
+</head>
+<body>
+    <!-- Your page content goes here -->
+    <header>
+    
+        <h1>Welcome to Website</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <div style="padding:56.25% 0 0 0;position:relative"><div style="height:100%;left:0;position:absolute;top:0;width:100%"><iframe src="https://licencetotest.com/embed/0c970452eb6" title="Zeacon | Embed Video" width="100%" height="100%" allowfullscreen="" style="border:0px"></iframe></div></div>
+        
+        <section id="home">
+            <h2>Home</h2>
+            <p>Welcome to our website. We provide...</p>
+        </section>
+
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Learn more about our company...</p>
+        </section>
+
+        <section id="services">
+            <h2>Our Services</h2>
+            <ul>
+                <li>Service 1</li>
+                <li>Service 2</li>
+                <li>Service 3</li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form action="save_form_data.php" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required><br><br>
+
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+    </footer>
+
+    <?php
+    // PHP code block for handling form submission
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Define the file path to save the form data
+        $file_path = "form_data.txt";
+
+        // Extract form data
+        $name = $_POST["name"];
+        $email = $_POST["email"];
+        $phone = $_POST["phone"];
+
+        // Format the data
+        $data = "Name: $name\nEmail: $email\nPhone: $phone\n\n";
+
+        // Open the file in append mode and save the form data
+        if (file_put_contents($file_path, $data, FILE_APPEND | LOCK_EX) !== false) {
+            echo "Form data saved successfully.";
+        } else {
+            echo "Error occurred while saving form data.";
+        }
+    }
+    ?>
+</body>
+</html>
