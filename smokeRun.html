@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
     <!-- Start of Zeacon Code -->
-    <script type="text/javascript" async="" id="zeacon-sdk" src="https://zeacon.com/sdk/correlator.js?api-key=19bfcdbc-66be-4d5a-8d94-51b00f6b3d9e"></script>
+    <script type="text/javascript" async="" id="zeacon-sdk"
+        src="https://zeacon.com/sdk/correlator.js?api-key=19bfcdbc-66be-4d5a-8d94-51b00f6b3d9e"></script>
     <!-- End of Zeacon Code -->
     <style>
         body {
@@ -74,6 +76,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <h1>Welcome to My Another Website</h1>
@@ -86,15 +89,37 @@
     </header>
 
     <main>
+        <h2>Embed VOD</h2>
         <!-- Start of Zeacon Code -->
-<div style="padding:56.25% 0 0 0;position:relative"><div style="height:100%;left:0;position:absolute;top:0;width:100%"><iframe src="https://zeacon.com/embed/158d53f6af0" title="Zeacon | Embed Video" width="100%" height="100%" allowfullscreen="" style="border:0px"></iframe></div></div>
-<!-- End of Zeacon Code -->
+        <iframe src="https://zeacon.com/embed/03e0d8dbdf7" title="Zeacon | Embed Video" width="640px" height="360px"
+            allowfullscreen="" style="border:0px"></iframe>
+        <script id="zeacon-sdk-correlation-manager" type="text/javascript"
+            src="https://zeacon.com/sdk/correlation-manager/bundle.js"></script>
+        <!-- End of Zeacon Code -->
+
+        <h2>Embed Archive</h2>
+        <iframe src="https://zeacon.com/embed/88b433eee56" title="Zeacon | Embed Video" width="640px" height="360px"
+            allowfullscreen="" style="border:0px"></iframe>
+        <script id="zeacon-sdk-correlation-manager" type="text/javascript"
+            src="https://zeacon.com/sdk/correlation-manager/bundle.js"></script>
+
+        <h2>Player VOD</h2>
+        <div style="padding:56.25% 0 0 0;position:relative">
+            <div style="height:100%;left:0;position:absolute;top:0;width:100%"><iframe
+                    src="https://zeacon.com/player/4fdf52e7-2bb6-4de0-99da-ce7771e3ac87" title="Zeacon | Embed Video"
+                    width="100%" height="100%" allowfullscreen="" style="border:0px"></iframe>
+                <script id="zeacon-sdk-correlation-manager" type="text/javascript"
+                    src="https://zeacon.com/sdk/correlation-manager/bundle.js"></script>
+            </div>
+        </div>
+
+
         <section id="contact">
             <h2>Contact Us</h2>
             <form id="contactForm">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required><br>
-                
+
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required><br>
 
@@ -111,7 +136,7 @@
     </footer>
 
     <script>
-        document.getElementById("contactForm").addEventListener("submit", function(event) {
+        document.getElementById("contactForm").addEventListener("submit", function (event) {
             event.preventDefault(); // Prevent default form submission
 
             var formData = new FormData(this);
@@ -121,18 +146,19 @@
                 method: "POST",
                 body: formData
             })
-            .then(response => response.text())
-            .then(data => {
-                console.log(data);
-                alert("Form submitted successfully!");
-                // Optionally, you can redirect the user to another page after successful form submission
-                // window.location.href = "thank_you.html";
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert("An error occurred while submitting the form. Please try again later.");
-            });
+                .then(response => response.text())
+                .then(data => {
+                    console.log(data);
+                    alert("Form submitted successfully!");
+                    // Optionally, you can redirect the user to another page after successful form submission
+                    // window.location.href = "thank_you.html";
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert("An error occurred while submitting the form. Please try again later.");
+                });
         });
     </script>
 </body>
+
 </html>
